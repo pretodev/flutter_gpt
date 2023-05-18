@@ -1,6 +1,7 @@
 import 'package:chat_gpt_flutter/chat_gpt_flutter.dart' as gpt;
 import 'package:flutter_gpt/infraestructure/adapters/bot_adapter.dart';
 
+import '../../../domain/chat/bot_response.dart';
 import '../../../domain/chat/message.dart';
 import '../../../domain/chat/sender_type.dart';
 
@@ -10,7 +11,7 @@ class GPTBot implements BotAdapter {
   );
 
   @override
-  Stream<Message> requestResponse(List<Message> context) async* {
+  Stream<ChatBotResponse> requestResponse(List<Message> context) async* {
     final gptMessages = context
         .map((m) => gpt.Message(
               content: m.content,
@@ -38,9 +39,8 @@ class GPTBot implements BotAdapter {
       final buffedMessage = event.choices?.first.delta?.content ?? '';
       message = message.copyWith(
         content: '${message.content}$buffedMessage',
-        completed: event.streamMessageEnd,
       );
-      return message;
+      return (message: message, isCompleted: event.streamMessageEnd);
     });
   }
 }

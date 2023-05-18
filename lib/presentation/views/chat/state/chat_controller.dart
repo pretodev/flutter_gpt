@@ -43,11 +43,11 @@ class ChatController {
     _subscription = _sendMessage(
       userMsg,
       history: history,
-    ).listen((message) {
-      _chatStore.setMessage(0, message);
-      if (message.completed) {
+    ).listen((response) {
+      if (response.isCompleted) {
         completer.complete();
       }
+      _chatStore.setMessage(0, response.message);
     });
 
     await completer.future;

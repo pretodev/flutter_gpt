@@ -1,5 +1,6 @@
+import '../../domain/chat/bot_response.dart';
 import '../../domain/chat/message.dart';
 
 abstract class BotAdapter {
-  Stream<Message> requestResponse(List<Message> context);
+  Stream<ChatBotResponse> requestResponse(List<Message> context);
 }

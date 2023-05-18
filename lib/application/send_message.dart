@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter_gpt/domain/chat/bot_response.dart';
 import 'package:flutter_gpt/domain/chat/chat_bot_service.dart';
 import 'package:flutter_gpt/domain/chat/message.dart';
 import 'package:flutter_gpt/domain/chat/message_repository.dart';
@@ -14,18 +15,18 @@ class SendMessage {
   })  : _chatService = chatService,
         _messageRepository = messageRepository;
 
-  Stream<Message> call(
+  Stream<ChatBotResponse> call(
     Message message, {
     List<Message> history = const [],
   }) async* {
     await _messageRepository.save(message);
     yield* _chatService
         .sendMessage(message, history)
-        .asyncMap((newMessage) async {
-      if (newMessage.completed) {
-        await _messageRepository.save(newMessage);
+        .asyncMap((response) async {
+      if (response.isCompleted) {
+        await _messageRepository.save(response.message);
       }
-      return newMessage;
+      return response;
     });
   }
 }
