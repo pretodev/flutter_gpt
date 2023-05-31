@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gpt/presentation/views/chat/state/chat_controller.dart';
-import 'package:flutter_gpt/presentation/views/chat/state/chat_store.dart';
+import 'package:flutter_gpt/presentation/stores/chat_store.dart';
+import 'package:flutter_gpt/presentation/views/chat/chat_controller.dart';
 import 'package:flutter_gpt/presentation/views/chat/widgets/chat_bubble.dart';
 import 'package:flutter_gpt/presentation/views/chat/widgets/chat_input.dart';
 import 'package:provider/provider.dart';

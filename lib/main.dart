@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gpt/application/load_messages.dart';
+import 'package:flutter_gpt/application/get_messages.dart';
 import 'package:flutter_gpt/application/send_message.dart';
 import 'package:flutter_gpt/domain/chat/message_repository.dart';
 import 'package:flutter_gpt/infraestructure/adapters/bot_adapter.dart';
@@ -8,8 +8,8 @@ import 'package:flutter_gpt/infraestructure/adapters/in_memory/message_in_memory
 import 'package:flutter_gpt/infraestructure/adapters/message_datasource_adapter.dart';
 import 'package:flutter_gpt/infraestructure/chat_bot_service_impl.dart';
 import 'package:flutter_gpt/presentation/app.dart';
-import 'package:flutter_gpt/presentation/views/chat/state/chat_controller.dart';
-import 'package:flutter_gpt/presentation/views/chat/state/chat_store.dart';
+import 'package:flutter_gpt/presentation/stores/chat_store.dart';
+import 'package:flutter_gpt/presentation/views/chat/chat_controller.dart';
 import 'package:provider/provider.dart';
 
 import 'domain/chat/chat_bot_service.dart';
@@ -39,7 +39,7 @@ void main() async {
           ),
         ),
         Provider(
-          create: (context) => LoadMessages(
+          create: (context) => GetMessages(
             messageRepository: context.read(),
           ),
         ),

@@ -2,10 +2,10 @@ import 'package:flutter_gpt/domain/chat/message_repository.dart';
 
 import '../domain/chat/message.dart';
 
-class LoadMessages {
+class GetMessages {
   final MessageRepository _messageRepository;
 
-  LoadMessages({
+  GetMessages({
     required MessageRepository messageRepository,
   }) : _messageRepository = messageRepository;
 

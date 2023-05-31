@@ -6,7 +6,7 @@ class MessageInMemoryDatasource extends MessageDatasourceAdapter {
 
   @override
   Future<Message> add(Message message) async {
-    _messages.add(message);
+    _messages.insert(0, message);
     return message;
   }
 

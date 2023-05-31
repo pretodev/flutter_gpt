@@ -11,6 +11,16 @@ class Message {
     DateTime? date,
   }) : date = date ?? DateTime.now();
 
+  factory Message.user(String content) => Message(
+        senderType: SenderType.user,
+        content: content,
+      );
+
+  factory Message.bot(String content) => Message(
+        senderType: SenderType.bot,
+        content: content,
+      );
+
   Message copyWith({
     SenderType? senderType,
     DateTime? date,
