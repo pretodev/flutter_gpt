@@ -1,16 +1,9 @@
-# flutter_gpt
+# Flutter GPT
 
-A new Flutter project.
+Chat mobile integrado com chat GPT
 
-## Getting Started
+## Setup
 
-This project is a starting point for a Flutter application.
+Crie um arquivo `env.json` utilizando o `env.example.json` como exemplo.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Adicione sua chave de acesso a API da OpenAI.
